@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Country, City, District, Temperature, Humidity, Pressure, Wind, Precipitation, Precipitation_icon, Cloud, Cloudy_icon, New, Day, User, Advertice
+from .models import Country, City, District, Temperature, Humidity, Pressure, Wind, Precipitation, Precipitation_icon, Cloud, Cloudy_icon, Day
 
 def index(request):
     users_list = User.objects.all()

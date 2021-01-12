@@ -124,20 +124,9 @@ class Cloudy_icon (models.Model):
     # def __str__(self):
     #     return self.name
 
-class New (models.Model):
-    date = models.DateField('день')
-    subject = models.CharField('тема новости', max_length=100)
-    heading = models.TextField('заголовок новости')
-    picture = models.CharField('путь к картинке', max_length=100)
-    description = models.TextField('описание новости')
-    source = models.CharField('источник новости', max_length=100)
-    # def __str__(self):
-    #     return (self.subject, self.heading) 
-
 class Day(models.Model):
     id_district = models.ForeignKey(District, on_delete = models.CASCADE)
     date = models.DateField('день')
-    news_id = models.ForeignKey(New, on_delete = models.CASCADE)
     id_temperature = models.ForeignKey(Temperature, on_delete = models.CASCADE)
     average_temperature = models.IntegerField('среднее значение температуры')
     id_humidity = models.ForeignKey(Humidity, on_delete = models.CASCADE)
@@ -157,29 +146,3 @@ class Day(models.Model):
 
     # def __str__(self):
     #     return (self.id_district, self.date) 
-
-
-class User(models.Model):
-    type = models.IntegerField('тип пользователя')
-    name = models.CharField('имя пользователя', max_length=100)
-    surname = models.CharField('фамилия пользователя', max_length=100)
-    patronymic = models.CharField('отчество пользователя', max_length=100)
-    male = models.CharField('гендер пользователя', max_length=1)
-    email = models.CharField('email пользователя', max_length=100)
-    birthday = models.DateField('день рождения пользователя')
-    login = models.CharField('логин пользователя', max_length=100)
-    password = models.CharField('пароль пользователя', max_length=100)
-
-    # def __str__(self):
-    #     return (self.name) 
-
-class Advertice (models.Model):
-    subject = models.CharField('тема рекламного объявления', max_length=100)
-    heading = models.TextField('заголовок рекламного объявления')
-    picture = models.CharField('путь к картинке', max_length=100)
-    description = models.TextField('описание рекламного объявления')
-    firm_name = models.CharField('рекламируемая фирма', max_length=100)
-
-    def __str__(self):
-        return (self.subject, self.heading, self.firm_name) 
-    
