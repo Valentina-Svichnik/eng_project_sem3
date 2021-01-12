@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        {% if country_list %}
+            {% for country in country_list %}
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ country.name }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="navbar-nav">
+                        {%if city_list %}
+                            {% for city in country.city_set.all  %}
+                                <li class="nav-item dropdown text-black">
+                                    <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {{ city.name}}
+                                    </a>
+                                    <form action="#" method="get">
+                                    {%if district_list %}
+                                        {% for district in city.district_set.all %}
+                                            <a href="#" class="dropdown-item" > {{ district.name }}</a>
+                                        {% endfor %}
+                                    {% else %}
+                                        Районы не найдены
+                                    {% endif %}
+                                    </form>
+                                </li>
+                              
+                            {% endfor %}
+                        {% else %}
+                                Города не найдены
+                        {% endif %}
+                    </ul>
+                </div>
+                </li>
+            {% endfor%}
+        {% else %}
+                Страны не найдены
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+
+  
+<div class="container">
+    <h2>Все города</h2>
+    {% for district in district_list %}
+        {% if district.day_set.all %}
+        {% for card in district.day_set.all %}
+        <div class="container my-3">
+            <div class="card">
+                <div class="card-body">
+                <h4 class="card-title">{{ card.id_district }}</h4>
+                <h6 class="card-subtitle mb-2 text-muted">{{ card.date }}</h6>
+                <p class="card-text">Температура: {{ card.average_temperature}}</p>
+                <p class="card-text">Осадки: <b>{{ card.name_precipitation }} </b>, {{ card.average_precipitation }}</p>
+
+                <div class="container-fluid d-flex justify-content-between">
+                    <p class="card-text">Облачность: {{ card.average_cloud }}</p>
+                    <p class="card-text">Влажность: {{ card.average_humidity }}</p>
+                    <p class="card-text">Давление: {{ card.average_pressure }} мм рт/ст</p>
+                    <p class="card-text">Ветренность: {{ card.average_wind }} м/с</p>
+                </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+            <p>Прогноз погоды для города {{ district }} отсутствует</p>
+        {% endif %}    
+    {% endfor %}
+</div>
+ 
+    <!-- {% if users_list %}
+
+    {% for i in users_list %}
+    <p>{{i.name}}</p>
+    {% endfor %}
+
+    {% else %}
+        Пользователи не найдены
+    {% endif %}
+{% endblock %} -->

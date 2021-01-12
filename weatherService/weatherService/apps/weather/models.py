@@ -1,7 +1,5 @@
 from django.db import models
 
-# Country, City, District, Temperature, Humidity, Pressure, Wind, Precipitation, Precipitation_icon, Cloudy, Cloudy_icon, New, Day, User, Advertice
-
 class Country(models.Model):
     name = models.CharField('название страны', max_length=100)
     popolation = models.CharField('население страны', max_length=100)
@@ -172,8 +170,8 @@ class User(models.Model):
     login = models.CharField('логин пользователя', max_length=100)
     password = models.CharField('пароль пользователя', max_length=100)
 
-    def __str__(self):
-        return (self.name) 
+    # def __str__(self):
+    #     return (self.name) 
 
 class Advertice (models.Model):
     subject = models.CharField('тема рекламного объявления', max_length=100)
