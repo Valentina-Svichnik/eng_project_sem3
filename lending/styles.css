@@ -1,0 +1,17 @@
+.bg-weather{
+    background: url(img/weather.jpg) no-repeat;
+    height: 550px;
+    background-size: cover;
+}
+
+.row__pink {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 30px;
+    left: 190px;
+    background-color: #d9ecec;
+    z-index: 1; }
+  
+  .img-about {
+    z-index: 10; }
