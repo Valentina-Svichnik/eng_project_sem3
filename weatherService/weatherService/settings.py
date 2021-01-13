@@ -35,6 +35,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'import_export',
     'users.apps.UsersConfig',
     'articles.apps.ArticlesConfig',

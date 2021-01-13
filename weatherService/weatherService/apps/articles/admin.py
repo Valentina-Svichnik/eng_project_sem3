@@ -7,7 +7,6 @@ from import_export import resources
 from import_export import fields
 from import_export.widgets import ForeignKeyWidget
 
-# admin.site.register(New)
 admin.site.register(Advertice)
 
 class NewResource(resources.ModelResource):
@@ -21,6 +20,5 @@ class NewResource(resources.ModelResource):
 
 @admin.register(New)
 class NewAdmin(ImportExportActionModelAdmin):
-    resource_class = NewResource
     list_display = ("id", "date", "subject", "heading", "picture", "description", "source")
     list_filter = ("subject", ) 

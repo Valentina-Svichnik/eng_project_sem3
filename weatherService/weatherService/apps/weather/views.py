@@ -9,9 +9,4 @@ def index(request):
     district_list = District.objects.all()
     return render(request, 'weather/list.html',  {'users_list' : users_list, 'country_list' : country_list, 'city_list' : city_list, 'district_list' : district_list})
 
-# def mymethod(request):
-#     if(request.GET.get('nameOfDistrict')):
-#         nameOfDistrict = request.GET.get('nameOfDistrict')
-#     # mypythoncode.mypythonfunction( int(request.GET.get('mytextbox')) )
-#     # return render_to_response('App/yourtemplate.html')
-#     return render(request, 'weather/list.html',  {'nameOfDistrict' : nameOfDistrict})
+
