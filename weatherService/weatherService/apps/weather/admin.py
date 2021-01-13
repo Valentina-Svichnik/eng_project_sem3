@@ -6,16 +6,6 @@ from django.utils.html import format_html
 from .models import Country, City, District, Temperature, Humidity, Pressure, Wind, Precipitation, Precipitation_icon, Cloud, Cloudy_icon, Day
 
 
-
-# admin.site.register(Temperature)
-# admin.site.register(Humidity)
-# admin.site.register(Pressure)
-# admin.site.register(Wind)
-# admin.site.register(Precipitation)
-# admin.site.register(Precipitation_icon)
-# admin.site.register(Cloud)
-# admin.site.register(Cloudy_icon)
-
 @admin.register(Day)
 class Weather(admin.ModelAdmin):
     list_display = ("date", "id_district", "average_temperature", "average_humidity", "name_precipitation", "average_cloud", "average_pressure", "average_wind")
