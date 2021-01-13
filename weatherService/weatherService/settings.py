@@ -35,6 +35,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'import_export',
     'users.apps.UsersConfig',
     'articles.apps.ArticlesConfig',
     'weather.apps.WeatherConfig',
