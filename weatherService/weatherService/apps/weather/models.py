@@ -35,10 +35,8 @@ class Temperature (models.Model):
     t_day = models.IntegerField('температура днем')
     t_evening = models.IntegerField('температура вечером')
     t_night = models.IntegerField('температура ночью')
-    t_average = models.IntegerField('средняя температура за день')
+    t_average = models.IntegerField('средняя температура за день', null=True)
 
-    # def __str__(self):
-    #     return (self.id_district, self.date)
 
 class Humidity (models.Model):
     id_district = models.IntegerField('id города')
@@ -49,8 +47,6 @@ class Humidity (models.Model):
     h_night = models.IntegerField('влажность ночью')
     h_average = models.IntegerField('средняя влажность за день')  
 
-    # def __str__(self):
-    #     return (self.id_district, self.date)
 
 class Pressure (models.Model):
     id_district = models.IntegerField('id города')
@@ -61,8 +57,6 @@ class Pressure (models.Model):
     pressure_night = models.IntegerField('давление ночью')
     pressure_average = models.IntegerField('среднее давление за день')    
 
-    # def __str__(self):
-    #     return (self.id_district, self.date)
 
 class Wind (models.Model):
     id_district = models.IntegerField('id города')
@@ -73,8 +67,6 @@ class Wind (models.Model):
     w_night = models.IntegerField('ветренность ночью')
     w_average = models.IntegerField('средняя ветренность за день')   
 
-    # def __str__(self):
-    #     return (self.id_district, self.date)
 
 class Precipitation (models.Model):
     id_district = models.IntegerField('id города')
@@ -90,15 +82,11 @@ class Precipitation (models.Model):
     p_average = models.IntegerField('среднее количество осадков за день')  
     p_name_average = models.CharField('средний тип осадков за день', max_length=100)   
 
-    # def __str__(self):
-    #     return (self.id_district, self.date) 
 
 class Precipitation_icon (models.Model):
     name = models.CharField('название типа осадков', max_length=100)
     icon = models.CharField('путь к иконке по типу осадков', max_length=100)  
 
-    def __str__(self):
-        return self.name 
 
 class Cloud (models.Model):
     id_district = models.IntegerField('id города')
@@ -114,15 +102,11 @@ class Cloud (models.Model):
     c_average = models.IntegerField('средняя интенсивность облачности за день')  
     c_name_average = models.CharField('средний тип облачности за день', max_length=100)   
 
-    # def __str__(self):
-    #     return (self.id_district, self.date) 
 
 class Cloudy_icon (models.Model):
     name = models.CharField('название типа облачности', max_length=100)
     icon = models.CharField('путь к иконке по типу облачности', max_length=100)
 
-    # def __str__(self):
-    #     return self.name
 
 class Day(models.Model):
     id_district = models.ForeignKey(District, on_delete = models.CASCADE)
@@ -143,6 +127,3 @@ class Day(models.Model):
     average_pressure = models.IntegerField('среднее значение давления')
     id_wind = models.ForeignKey(Wind, on_delete = models.CASCADE)
     average_wind = models.IntegerField('среднее значение ветренности')
-
-    # def __str__(self):
-    #     return (self.id_district, self.date) 
