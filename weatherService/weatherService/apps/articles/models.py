@@ -1,22 +1,22 @@
 from django.db import models
 
 class Advertice (models.Model):
-    subject = models.CharField('тема рекламного объявления', max_length=100)
-    heading = models.TextField('заголовок рекламного объявления')
-    picture = models.CharField('путь к картинке', max_length=100)
-    description = models.TextField('описание рекламного объявления')
-    firm_name = models.CharField('рекламируемая фирма', max_length=100)
+    subject = models.CharField('Subject', max_length=100)
+    heading = models.TextField('Heading')
+    picture = models.CharField('Way to the picture', max_length=100)
+    description = models.TextField('Description')
+    firm_name = models.CharField('Name of the firm', max_length=100)
 
     def __str__(self):
         return (self.subject) 
 
 class New (models.Model):
-    date = models.DateField('день')
-    subject = models.CharField('тема новости', max_length=100)
-    heading = models.TextField('заголовок новости')
-    picture = models.CharField('путь к картинке', max_length=100)
-    description = models.TextField('описание новости')
-    source = models.CharField('источник новости', max_length=100)
+    date = models.DateField('Date')
+    subject = models.CharField('Subject of the News', max_length=100)
+    heading = models.TextField('Heading')
+    picture = models.CharField('Way to the picture', max_length=100)
+    description = models.TextField('Description')
+    source = models.CharField('Source', max_length=100)
 
     def __str__(self):
         return (self.subject)    

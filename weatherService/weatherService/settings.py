@@ -37,7 +37,6 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'rest_framework',
     'import_export',
-    'users.apps.UsersConfig',
     'articles.apps.ArticlesConfig',
     'weather.apps.WeatherConfig',
     'django.contrib.admin',

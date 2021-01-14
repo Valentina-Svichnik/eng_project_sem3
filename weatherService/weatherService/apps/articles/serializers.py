@@ -18,3 +18,6 @@ class AdverticeSerializer(serializers.Serializer):
         instance.firm_name = validated_data.get('firm_name', instance.firm_name)
         instance.save()
         return instance
+
+
+        
