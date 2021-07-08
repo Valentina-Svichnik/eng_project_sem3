@@ -19,4 +19,7 @@ class New (models.Model):
     source = models.CharField('Source', max_length=100)
 
     def __str__(self):
-        return (self.subject)    
+        return (self.subject)   
+    
+    def get_absolute_url(self):
+        return f'/advertices'

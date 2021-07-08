@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid p-5">
+
+      <form method="POST" class="row p-5">
+          {% csrf_token %}
+
+        <div class="col-4 form-group">
+          <label for="date">Дата создания</label>
+          <!-- <input type="date" class="form-control" id="date" name="date"> -->
+          {{ form.date }}
+        </div>
+        <div class="col-4 form-group">
+          <label for="subject">Тема</label>
+          <!-- <input type="text" class="form-control" id="subject" placeholder="Тема новости" name="subject"> -->
+          {{ form.subject }}
+        </div>
+        <div class="col-4 form-group">
+            <label for="heading">Заголовок</label>
+            <!-- <input type="text" class="form-control" id="heading" placeholder="Заголовок" name="heading"> -->
+            {{ form.heading }}
+          </div>
+        <div class="col-4 form-group">
+            <label for="way">Путь до картинки</label>
+            <!-- <input type="text" class="form-control" id="way" value="/static/img/..." name="way"> -->
+            {{ form.picture }}
+          </div>
+        <div class="col-4 form-group">
+            <label for="source">Источник</label>
+            <!-- <input type="text" class="form-control" id="source" placeholder="Источник" name="source"> -->
+            {{ form.source }} 
+        </div>
+        <div class="col-12 form-group">
+            <div class="w-50">
+                <label for="description">Текст новости </label>
+                <!-- <input type="text" class="form-control" id="description" placeholder="Текст новости" name="description"> -->
+                {{ form.description }}
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-outline-info m-3 px-5">Сохранить</button>
+
+        
+      </form>
+
+      <h3 class="test-success">{{ message_success }}</h3>
+  </div>
+{% endblock %}

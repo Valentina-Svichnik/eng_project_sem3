@@ -1,14 +1,70 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import Http404, HttpResponseRedirect
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.urls import reverse
 
 from .models import New, Advertice
 from .serializers import AdverticeSerializer
+from .forms import NewsForm
+from django.views.generic import UpdateView, DeleteView
 
 def index(request):
     news_list = New.objects.all()
     advertices_list = Advertice.objects.all()
-    return render(request, 'weather/list.html',  {'news_list' : news_list, 'advertices_list' : advertices_list})
+    return render(
+        request, 
+        'weather/list.html',  
+        {
+            'news_list' : news_list, 
+            'advertices_list' : advertices_list,
+        }
+    )
+
+def adv(request):
+    news_list = New.objects.all()
+    news_count = New.objects.count()
+    message_success = ''
+
+    # if request.method =='POST':
+    form = NewsForm(request.POST)
+    if form.is_valid():
+        form.save()
+        message_success = 'Запись успешно добавлена!'
+
+    # news_list.create(
+    #     date = request.POST['date'],
+    #     subject = request.POST['subject'],
+    #     heading = request.POST['heading'],
+    #     picture = request.POST['way'],
+    #     description = request.POST['description'],
+    #     source = request.POST['source']
+    #     )
+
+
+    return render(
+        request,
+        'weather/adv.html',
+        {
+            'news_list' : news_list,
+            'news_count' : news_count,
+            'form' : form,
+            'message_success' : message_success,
+        }
+    )
+
+
+class NewsUpdateView(UpdateView):
+    model = New
+    template_name = 'weather/update-new.html'
+
+    form_class = NewsForm
+
+class NewsDeleteView(DeleteView):
+    model = New
+    template_name = 'weather/delete-new.html'
+    success_url = '/advertices'
+
 
 class AdverticeView(APIView):
     def get(self, request):
