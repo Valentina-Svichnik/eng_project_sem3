@@ -1,0 +1,212 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row p-5">
+        <div class="col-3 mx-2">
+            <div class="container-20 p-3 d-flex justify-content-between">
+                <div><img src="{% static 'img/sunny.png' %}" alt="weather_icon" width="100%"></div>
+            <div class="date">
+                <p class="text-right p-0 m-0 " style="font-size: 30px !important; font-weight: bold;">{% now "H:i" %}</p>
+                <p class="text-lightBlue text-right p-0">{% now "F, j" %}<br>Ясно</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-8 mx-3">
+
+            <div class="container-20 p-4">
+                <div class="d-flex justify-content-between">
+                    <div class="dropdown">
+                        <button class="dropdown-toggle text-darkBlue"
+                                type="button" id="dropdownMenu1" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                          Москва </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                          {%if district_list %}
+                            {% for district in district_list.all %}
+                              <a class="dropdown-item" href="#!">{{ district.name }}</a>
+                            {% endfor%}
+                          {% endif %}
+                        </div>
+                    </div>
+                      
+                    <div class="dropdown">
+                        <button class="dropdown-toggle text-darkBlue"
+                                type="button" id="dropdownMenu2" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                          Изменить пункт </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                          {%if district_list %}
+                            {% for district in district_list.all %}
+                              <a class="dropdown-item" href="#!">{{ district.name }}</a>
+                            {% endfor%}
+                          {% endif %}
+                        </div>
+                      </div>
+                </div>
+                
+                
+                <div class="row p-3">
+                    <div class="col-3 mt-3 px-2 mx-3 right-line">
+                        <div class="d-flex">
+                            {%if prec %}
+                                {% for prec in prec.all %}
+                                    {% if prec_icon %}
+                                        {% for prec_icon in prec_icon.all %}
+
+                                            {% if prec.p_name_average == prec_icon.name %}
+                                                <img src="{{ prec_icon.icon }}" alt="weather icon" width="80px">
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+
+                                    {%if temp_list %}
+                                        {% for temp in temp_list.all %}
+                                            <p class="numbers m-0 pt-2 mx-3">{{ temp.t_average }}°С</p>
+                                        {% endfor %}
+                                    {% endif %}
+                                    <p class="text-small m-0 pt-3 ">{{ prec.p_name_average }}</p>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        {%if cloud_list %}
+                            {% for cloud in cloud_list.all %}
+                                <p class="mt-5 mb-0">Облачность: {{ cloud.c_average }}</p>
+                            {% endfor %}
+                        {% endif %}
+
+                        {%if humidity_list %}
+                            {% for humid in humidity_list.all %}
+                                <p class="mb-0">Влажность: {{ humid.h_average }}</p>
+                            {% endfor %}
+                        {% endif %}
+
+                        {%if pressure_list %}
+                            {% for pressure in pressure_list.all %}
+                                <p class="mb-0">Давление: {{ pressure.pressure_average }} мм рт/ст</p>
+                            {% endfor %}
+                        {% endif %}
+
+                        {%if wind_list %}
+                            {% for wind in wind_list.all %}
+                                <p class="mb-0">Ветренность: {{ wind.w_average }} м/с</p>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+    
+                    
+                    <div class="col-8">
+                       <div class="d-flex justify-content-center">
+                            <div class="d-flex w-75 justify-content-around">
+                                    <p class="text-center">6:00</p>
+                                    <p class="text-center">12:00</p>
+                                    <p class="text-center">18:00</p>
+                                    <p class="text-center">23:00</p>
+                                </div>
+                            </div>
+
+                       <div class="d-flex justify-content-center mb-2">
+                        <div class="d-flex w-75 justify-content-around">
+                            {%if prec %}
+                                {% for prec in prec.all %}
+                                    {% if prec_icon %}
+                                        {% for prec_icon in prec_icon.all %}
+
+                                            {% if prec.p_name_morning == prec_icon.name %}
+                                                <img src="{{ prec_icon.icon }}" alt="weather icon" width="80px">
+                                            {% endif %}
+
+                                            {% if prec.p_name_day == prec_icon.name %}
+                                                <img src="{{ prec_icon.icon }}" alt="weather icon" width="80px">
+                                            {% endif %}
+
+                                            {% if prec.p_name_evening == prec_icon.name %}
+                                                <img src="{{ prec_icon.icon }}" alt="weather icon" width="80px">
+                                            {% endif %}
+
+                                            {% if prec.p_name_night == prec_icon.name %}
+                                                <img src="{{ prec_icon.icon }}" alt="weather icon" width="80px">
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                        <div class="d-flex justify-content-center">
+                            <div class="d-flex w-75 justify-content-around">
+                                {%if temp_list %}
+                                    {% for temp in temp_list.all %}
+                                        <p>{{ temp.t_morning }}</p>
+                                        <p>{{ temp.t_day }}</p>
+                                        <p>{{ temp.t_evening }}</p>
+                                        <p>{{ temp.t_night }}</p>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+    
+                       <hr class="speed mb-4">
+                       <div class="d-flex justify-content-center">
+                            <div class="d-flex w-75 justify-content-around">
+                                {%if wind_list %}
+                                    {% for wind in wind_list.all %}
+                                        <p>{{ wind.w_morning }}</p>
+                                        <p>{{ wind.w_day }}</p>
+                                        <p>{{ wind.w_evening }}</p>
+                                        <p>{{ wind.w_night }}</p>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                       <hr class="pressure mb-4">
+                       <div class="d-flex justify-content-center">
+                            <div class="d-flex w-75 justify-content-around">
+                                {%if pressure_list %}
+                                    {% for pressure in pressure_list.all %}
+                                        <p>{{ pressure.pressure_morning }}</p>
+                                        <p>{{ pressure.pressure_day }}</p>
+                                        <p>{{ pressure.pressure_evening }}</p>
+                                        <p>{{ pressure.pressure_night }}</p>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                       <hr class="humidity mb-4">
+                       <div class="d-flex justify-content-center">
+                            <div class="d-flex w-75 justify-content-around">
+                                {%if humidity_list %}
+                                    {% for humidity in humidity_list.all %}
+                                        <p>{{ humidity.h_morning }}</p>
+                                        <p>{{ humidity.h_day }}</p>
+                                        <p>{{ humidity.h_evening }}</p>
+                                        <p>{{ humidity.h_night }}</p>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                       <hr class="cloudy mb-4">
+                       <div class="d-flex justify-content-center mb-5">
+                           <div class="d-flex w-75 justify-content-around">
+                            {%if cloud_list %}
+                                {% for cloud in cloud_list.all %}
+                                    <p>{{ cloud.c_morning }}</p>
+                                    <p>{{ cloud.c_day }}</p>
+                                    <p>{{ cloud.c_evening }}</p>
+                                    <p>{{ cloud.c_night }}</p>
+                                {% endfor %}
+                            {% endif %}
+                               
+                           </div>
+                       </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

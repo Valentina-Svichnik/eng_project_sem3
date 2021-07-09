@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid p-5">
+
+      <form method="POST" class="row p-5">
+          {% csrf_token %}
+
+        <div class="col-4 form-group">
+          <label for="date">Дата создания</label>
+          {{ form.date }}
+        </div>
+        <div class="col-4 form-group">
+          <label for="subject">Тема</label>
+          {{ form.subject }}
+        </div>
+        <div class="col-4 form-group">
+            <label for="heading">Заголовок</label>
+            {{ form.heading }}
+          </div>
+        <div class="col-4 form-group">
+            <label for="way">Путь до картинки</label>
+            {{ form.picture }}
+          </div>
+        <div class="col-4 form-group">
+            <label for="source">Источник</label>
+            {{ form.source }} 
+        </div>
+        <div class="col-12 form-group">
+            <div class="w-50">
+                <label for="description">Текст новости </label>
+                {{ form.description }}
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-outline-info m-3 px-5">Сохранить</button>
+
+        
+      </form>
+
+      <h3 class="test-success">{{ message_success }}</h3>
+  </div>
+{% endblock %}

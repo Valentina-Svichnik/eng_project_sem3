@@ -1,9 +1,48 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 
+  <div class="container-fluid">
+    <div class="container">
+      <div class="city pt-5">
+        {% for district in district_list %}
+          {% if district.day_set.all %}
+          
+            <h3>{{ district.name }}</h3>
+            
+            <div class="container mb-4">
+              <div class="row">
+                {% for card in district.day_set.all %}
+                
+                <div class="col-2 container-10 text-darkBlue p-3 mx-2 mt-3">
+                  <h6 class="text-medium">{{ card.date }}</h5>
+                    <hr class="m-0">
+                      <div class="d-flex my-2 justify-content-around">
+                        {% for icon in icon_list %}
+                          {% if icon.name == card.name_precipitation %}
+                            <img src="{{ icon.icon }}" alt="weather icon" class="w-50">
+                          {% endif %}
+                        {% endfor %}
+                        
+                        <div>
+                          <p class="numbers mb-0">{{ card.average_temperature }}</p>
+                          <p class="m-0 text-right text-small">{{ card.name_precipitation }}</p>
+                        </div>
+                      </div>
+                      <p class="m-0 ">Ветер: {{ card.average_wind }}м\с</p>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}    
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+
+
+<!-- <nav class="navbar navbar-expand-lg ">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -47,36 +86,26 @@
         {% endif %}
       </ul>
     </div>
-  </nav>
+  </nav> -->
+
 
   
-<div class="container">
-    <h2>Все города</h2>
-    {% for district in district_list %}
-        {% if district.day_set.all %}
-        {% for card in district.day_set.all %}
-        <div class="container my-3">
-            <div class="card">
-                <div class="card-body">
-                <h4 class="card-title">{{ card.id_district }}</h4>
-                <h6 class="card-subtitle mb-2 text-muted">{{ card.date }}</h6>
-                <p class="card-text">Температура: {{ card.average_temperature}}</p>
-                <p class="card-text">Осадки: <b>{{ card.name_precipitation }} </b>, {{ card.average_precipitation }}</p>
+  <!-- <div class="dropdown">
+    <button class="dropdown-toggle"
+            type="button" id="dropdownMenu1" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+      Москва
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      {%if district_list %}
+        {% for district in district_list.all %}
+          <a class="dropdown-item" href="#!">{{ district.name }}</a>
+        {% endfor%}
+      {% endif %}
+    </div>
+  </div> -->
+  
 
-                <div class="container-fluid d-flex justify-content-between">
-                    <p class="card-text">Облачность: {{ card.average_cloud }}</p>
-                    <p class="card-text">Влажность: {{ card.average_humidity }}</p>
-                    <p class="card-text">Давление: {{ card.average_pressure }} мм рт/ст</p>
-                    <p class="card-text">Ветренность: {{ card.average_wind }} м/с</p>
-                </div>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-        {% else %}
-            <p>Прогноз погоды для города {{ district }} отсутствует</p>
-        {% endif %}    
-    {% endfor %}
-</div>
-
+ 
 {% endblock %}
+

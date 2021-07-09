@@ -1,0 +1,197 @@
+body{
+    font-family: 'Nunito', sans-serif !important;
+    color: #113D3E !important;
+}
+
+/* ********************TEXT************************ */
+.text-darkBlue{
+    color: #113D3E !important;
+}
+
+.text-lightBlue{
+    color: #49A1A2;
+}
+
+.text-medium{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 16px;
+}
+
+.ms-text{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.text-small{
+    font-size: 10px;
+}
+
+.my-time{
+    font-style: normal !important;
+    font-weight: bold !important;
+    font-size: 30px !important;
+    line-height: 41px !important;
+}
+
+.numbers{
+    font-size: 20px;
+}
+
+.active{
+    color: #DAEFF0 !important;
+}
+
+nav a:hover{
+    color: #DAEFF0 !important;
+    transition: 0.5s;
+}
+
+.nav-news .active{
+    color: #113D3E !important;
+    text-decoration-line: underline;
+}
+
+.line-text{
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+}
+
+h4{
+    font-style: normal !important;
+    font-weight: bold !important;
+    font-size: 15px !important;
+    line-height: 20px !important;
+}
+
+
+
+/* ***********************BACKGROUND************************** */
+.bg-darkBlue{
+    background-color: #6AA0A0 !important;
+}
+
+.bg-main{
+    background: radial-gradient(at right, #79B1B2, #E8EDED);
+}
+
+.container-10{
+    height: auto;
+    background-color: #F2F5F5;
+    border-radius: 10px;
+}
+
+.container-20{
+    height: auto;
+    background-color: #F2F5F5;
+    border-radius: 20px;
+}
+
+.container-7{
+    height: auto !important;
+    background-color: #F2F5F5 !important;
+    border-radius: 7px !important;
+}
+
+.bg-line{
+    background-color: #B5D1D2;
+}
+
+.map>img{
+    border: 1px solid #113D3E;
+    /* box-sizing: border-box; */
+    border-radius: 10px;
+}
+
+
+
+/* *********************OTHER ELEMENTS*********************** */
+.right-line{
+    border-right: 1px solid #B5D1D2;
+}
+
+nav button, .container-20 button{
+    border: none !important;
+    background: none !important;
+}
+
+/* form button{
+    border: #17a2b8 !important;
+}
+
+.btn-outline-info{
+    border: #17a2b8 !important;
+} */
+
+hr {
+    height: 1px;
+    background-color: black;
+    border: none;
+    text-align: center;
+}
+hr::before {
+    position: relative;
+    top: -10px;
+    background-color: #F2F5F5;
+    padding: 2px 5px;
+}
+
+.speed::before{
+    content: "Скорость ветра, м/с";
+}
+
+.pressure::before{
+    content: "Давление, мм рт/ст";
+}
+
+.humidity::before{
+    content: "Влажность";
+}
+
+.cloudy::before{
+    content: "Облачность";
+}
+
+.block{
+    border-radius: 2px;
+    width: 8%;
+}
+
+.w-60{
+    width: 60%;
+}
+
+.time-block{
+    border: none !important;
+}
+
+.time-block:hover{
+    background-color: #cde6e6 !important;
+}
+
+.activeBtn{
+    color: #113D3E !important;
+    background-color: #cde6e6 !important;
+}
+
+
+/* *******************SLIDER********************* */
+/* .carousel-inner .carousel-item.active,.carousel-inner .carousel-item-next,.carousel-inner .carousel-item-prev{display:flex}
+.carousel-inner .carousel-item-right.active,.carousel-inner .carousel-item-next{transform:translateX(25%)}
+.carousel-inner .carousel-item-left.active,.carousel-inner .carousel-item-prev{transform:translateX(-25%)}
+.carousel-inner .carousel-item-right,.carousel-inner .carousel-item-left{transform:translateX(0)} */
+
+.carousel {
+    display: flex !important;
+    justify-content: center !important; }
+  
+  .carousel-item img {
+    width: 90%; }
+  
+  .carousel-item .card {
+    width: 90% !important; }
