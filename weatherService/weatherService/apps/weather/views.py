@@ -56,7 +56,6 @@ def archive(request):
     icon_list = Precipitation_icon.objects.all()
     return render(request, 'weather/archive.html',  {'country_list' : country_list, 'city_list' : city_list, 'district_list' : district_list, 'icon_list' : icon_list})
 
-
 class LoginView(LoginView):
     template_name = 'weather/login.html'
     form_class = AuthUserForm

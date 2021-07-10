@@ -3,17 +3,17 @@
 {% block content %}
 
 <div class="container-fluid">
-    <div class="row p-5">
-        <div class="col-3 mx-2">
+    <div class="row py-3 p-sm-5">
+        <div class="col-12 col-md-3 mx-2 mb-3">
             <div class="container-20 p-3 d-flex justify-content-between">
                 <div><img src="{% static 'img/sunny.png' %}" alt="weather_icon" width="100%"></div>
             <div class="date">
-                <p class="text-right p-0 m-0 " style="font-size: 30px !important; font-weight: bold;">{% now "H:i" %}</p>
+                <p class="text-right p-0 m-0 text-huge-time">{% now "H:i" %}</p>
                 <p class="text-lightBlue text-right p-0">{% now "F, j" %}<br>Ясно</p>
             </div>
             </div>
         </div>
-        <div class="col-8 mx-3">
+        <div class="col-12 col-md-8 mx-2">
 
             <div class="container-20 p-4">
                 <div class="d-flex justify-content-between">
@@ -48,25 +48,25 @@
                 
                 
                 <div class="row p-3">
-                    <div class="col-3 mt-3 px-2 mx-3 right-line">
-                        <div class="d-flex">
+                    <div class="col-12 col-lg-3 m-3 px-2 pb-3 right-line">
+                        <div class="d-flex justify-content-between flex-column flex-xl-row ">
                             {%if prec %}
                                 {% for prec in prec.all %}
                                     {% if prec_icon %}
                                         {% for prec_icon in prec_icon.all %}
 
                                             {% if prec.p_name_average == prec_icon.name %}
-                                                <img src="{{ prec_icon.icon }}" alt="weather icon" width="80px">
+                                                <img src="{{ prec_icon.icon }}" alt="weather icon" width="40%" class="align-self-center">
                                             {% endif %}
                                         {% endfor %}
                                     {% endif %}
 
                                     {%if temp_list %}
                                         {% for temp in temp_list.all %}
-                                            <p class="numbers m-0 pt-2 mx-3">{{ temp.t_average }}°С</p>
+                                            <p class="numbers m-0 pt-2 text-center text-xl-right">{{ temp.t_average }}°С</p>
                                         {% endfor %}
                                     {% endif %}
-                                    <p class="text-small m-0 pt-3 ">{{ prec.p_name_average }}</p>
+                                    <p class="text-small m-0 pt-xl-3 text-center text-xl-right">{{ prec.p_name_average }}</p>
                                 {% endfor %}
                             {% endif %}
                         </div>
@@ -96,7 +96,7 @@
                     </div>
     
                     
-                    <div class="col-8">
+                    <div class="col-12 col-lg-8">
                        <div class="d-flex justify-content-center">
                             <div class="d-flex w-75 justify-content-around">
                                     <p class="text-center">6:00</p>
@@ -114,19 +114,19 @@
                                         {% for prec_icon in prec_icon.all %}
 
                                             {% if prec.p_name_morning == prec_icon.name %}
-                                                <img src="{{ prec_icon.icon }}" alt="weather icon" width="80px">
+                                                <img src="{{ prec_icon.icon }}" alt="weather icon" width="30%">
                                             {% endif %}
 
                                             {% if prec.p_name_day == prec_icon.name %}
-                                                <img src="{{ prec_icon.icon }}" alt="weather icon" width="80px">
+                                                <img src="{{ prec_icon.icon }}" alt="weather icon" width="30%">
                                             {% endif %}
 
                                             {% if prec.p_name_evening == prec_icon.name %}
-                                                <img src="{{ prec_icon.icon }}" alt="weather icon" width="80px">
+                                                <img src="{{ prec_icon.icon }}" alt="weather icon" width="30%">
                                             {% endif %}
 
                                             {% if prec.p_name_night == prec_icon.name %}
-                                                <img src="{{ prec_icon.icon }}" alt="weather icon" width="80px">
+                                                <img src="{{ prec_icon.icon }}" alt="weather icon" width="30%">
                                             {% endif %}
                                         {% endfor %}
                                     {% endif %}

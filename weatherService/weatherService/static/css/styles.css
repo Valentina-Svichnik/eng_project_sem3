@@ -69,6 +69,11 @@ h4{
     line-height: 20px !important;
 }
 
+.text-huge-time{
+    font-size: 30px !important; 
+    font-weight: bold;
+}
+
 
 
 /* ***********************BACKGROUND************************** */
@@ -104,7 +109,6 @@ h4{
 
 .map>img{
     border: 1px solid #113D3E;
-    /* box-sizing: border-box; */
     border-radius: 10px;
 }
 
@@ -119,14 +123,6 @@ nav button, .container-20 button{
     border: none !important;
     background: none !important;
 }
-
-/* form button{
-    border: #17a2b8 !important;
-}
-
-.btn-outline-info{
-    border: #17a2b8 !important;
-} */
 
 hr {
     height: 1px;
@@ -194,4 +190,79 @@ hr::before {
     width: 90%; }
   
   .carousel-item .card {
-    width: 90% !important; }
+    width: 90% !important; 
+}
+
+@media (max-width: 1180px){
+    .numbers{
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 991px){
+    .right-line{
+        border-right: none;
+        border-bottom: 1px solid #B5D1D2;
+    }
+
+    .text-huge-time{
+        font-size: 165% !important; 
+        font-weight: bold;
+    }
+
+    /* .text-medium{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 16px;
+    } */
+    
+    .ms-text{
+        font-size: 10px;
+    }
+    
+    .text-small{
+        font-size: 8px;
+    }
+}
+
+@media (min-width: 992px){
+    .w-lg-50{
+        width: 50%;
+    }
+    .w-md-50{
+        width: 50% !important;
+    }
+
+    .ms-text{
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 770px){
+    .w-md-50{
+        width: 50% !important;
+    }
+
+    .container-20{
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 560px){
+    .ms-text{
+        font-size: 8px;
+    }   
+}
+
+@media (max-width: 490px){
+    .ms-text{
+        font-size: 6px;
+    }
+}
+
+@media (max-width: 326px){
+    .ms-text{
+        font-size: 5px;
+    }
+}

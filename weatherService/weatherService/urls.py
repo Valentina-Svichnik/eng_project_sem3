@@ -25,5 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('articles.urls')),
     path('api/', include('weather.urls')),
-    # path('admin/', admin.site.urls),
+    path('dashboard/', include('dashboard.urls')),
 ]

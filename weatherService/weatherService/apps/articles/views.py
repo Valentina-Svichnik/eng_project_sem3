@@ -26,25 +26,15 @@ def adv(request):
     news_count = New.objects.count()
     message_success = ''
 
-    # if request.method =='POST':
     form = NewsForm(request.POST)
     if form.is_valid():
         form.save()
         message_success = 'Запись успешно добавлена!'
 
-    # news_list.create(
-    #     date = request.POST['date'],
-    #     subject = request.POST['subject'],
-    #     heading = request.POST['heading'],
-    #     picture = request.POST['way'],
-    #     description = request.POST['description'],
-    #     source = request.POST['source']
-    #     )
-
 
     return render(
         request,
-        'weather/adv.html',
+        'weather/news.html',
         {
             'news_list' : news_list,
             'news_count' : news_count,

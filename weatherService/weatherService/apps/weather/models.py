@@ -1,14 +1,9 @@
 from django.db import models
-# from django.contrib.auth.models import AbstractUser 
 from django.contrib.auth.models import User 
   
 class User(User): 
     class Meta:
         proxy = True
-        # ordering = ('username')
-    
-    # def get_absolute_url(self):
-    #     return f'/advertices'
 
 
 class Country(models.Model):

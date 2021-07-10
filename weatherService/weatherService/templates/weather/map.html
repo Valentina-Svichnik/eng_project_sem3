@@ -5,11 +5,11 @@
 <div class="container-fluid p-4">
     <h3>Осадки в Европе</h3>
 
-    <div class="mx-4 row">
-        <div class="map col-8 map d-flex flex-column w-60">
+    <div class="mx-md-4 row">
+        <div class="map col-12 col-md-8 map d-flex flex-column w-60">
             <img src="{% static 'img/map1.png' %}" alt="map">
 
-            <div class="container-20 mt-3 p-3 mt-3">
+            <div class="container-20 my-3 p-1 p-sm-3">
                 <div class="d-flex justify-content-between mb-2">
                     <div class="d-flex">
                         <img src="{% static 'img/green.png' %}" alt="type of precipitation" class="mr-1">
@@ -28,46 +28,51 @@
                         <p class="m-0 ms-text">Изобары, гПa</p>
                     </div>
                 </div>
+
                 <div class="d-flex justify-content-between">
-                    <div class="p-2 block text-center m-1 text-small" style="background: #A0FFA0;">0,5 мм</div>
-                    <div class="p-2 block text-center m-1 text-small" style="background: #8CFF8C;">1</div>
-                    <div class="p-2 block text-center m-1 text-small" style="background: #64FF64;">1,5</div>             
-                    <div class="p-2 block text-center m-1 text-small" style="background: #3CFF3C;">2</div>             
-                    <div class="p-2 block text-center m-1 text-small" style="background: #00FF00;">2,5</div>             
-                    <div class="p-2 block text-center m-1 text-small" style="background: #00E600;">3</div>            
-                    <div class="p-2 block text-center m-1 text-small" style="background: #00DC00;">3,5</div>            
-                    <div class="p-2 block text-center m-1 text-small" style="background: #00C800;">4</div>        
-                    <div class="p-2 block text-center m-1 text-small" style="background: #00B400;">5</div>            
-                    <div class="p-2 block text-center m-1 text-small" style="background: #00A000;">10</div>          
-                    <div class="p-2 block text-center m-1 text-small" style="background: #008C00;">15</div>            
-                    <div class="p-2 block text-center m-1 text-small" style="background: #007800;">20</div>           
-                    <div class="p-2 block text-center text-white m-1 text-small" style="background: #005000;">25мм</div>
+                    <div class="p-0 p-sm-1 p-md-2 p-md-2 block text-center m-1 text-small" style="background: #A0FFA0;">0,5мм</div>
+                    <div class="p-0 p-sm-1 p-md-2 block text-center m-1 text-small" style="background: #8CFF8C;">1</div>
+                    <div class="p-0 p-sm-1 p-md-2 block text-center m-1 text-small" style="background: #64FF64;">1,5</div>             
+                    <div class="p-0 p-sm-1 p-md-2 block text-center m-1 text-small" style="background: #3CFF3C;">2</div>             
+                    <div class="p-0 p-sm-1 p-md-2 block text-center m-1 text-small" style="background: #00FF00;">2,5</div>             
+                    <div class="p-0 p-sm-1 p-md-2 block text-center m-1 text-small" style="background: #00E600;">3</div>            
+                    <div class="p-0 p-sm-1 p-md-2 block text-center m-1 text-small" style="background: #00DC00;">3,5</div>            
+                    <div class="p-0 p-sm-1 p-md-2 block text-center m-1 text-small" style="background: #00C800;">4</div>        
+                    <div class="p-0 p-sm-1 p-md-2 block text-center m-1 text-small" style="background: #00B400;">5</div>            
+                    <div class="p-0 p-sm-1 p-md-2 block text-center m-1 text-small" style="background: #00A000;">10</div>          
+                    <div class="p-0 p-sm-1 p-md-2 block text-center m-1 text-small" style="background: #008C00;">15</div>            
+                    <div class="p-0 p-sm-1 p-md-2 block text-center m-1 text-small" style="background: #007800;">20</div>           
+                    <div class="p-0 p-sm-1 p-md-2 block text-center text-white m-1 text-small" style="background: #005000;">25мм</div>
                 </div>
             </div>
         </div>
 
-        <div class="d-flex flex-column mx-5 col-1">
-            <div class="row">
+        <div class="col-12 col-md-4 col-lg-2 d-flex flex-lg-column mx-lg-5">
+            <div class="mr-2">
                 <p class="m-0">Сб, 12 июля</p>
-                <button data-src="{% static 'img/map1.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block activeBtn">0:00</button>
-                <button data-src="{% static 'img/map2.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">3:00</button>
-                <button data-src="{% static 'img/map3.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">6:00</button>
-                <button data-src="{% static 'img/map4.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">9:00</button>
-                <button data-src="{% static 'img/map5.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">12:00</button>
-                <button data-src="{% static 'img/map6.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">15:00</button>
-                <button data-src="{% static 'img/map7.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">18:00</button>
-                <button data-src="{% static 'img/map8.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">21:00</button>
+                <div class="w-md-50 mb-5">
+                    <button data-src="{% static 'img/map1.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block activeBtn">0:00</button>
+                    <button data-src="{% static 'img/map2.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">3:00</button>
+                    <button data-src="{% static 'img/map3.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">6:00</button>
+                    <button data-src="{% static 'img/map4.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">9:00</button>
+                    <button data-src="{% static 'img/map5.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">12:00</button>
+                    <button data-src="{% static 'img/map6.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">15:00</button>
+                    <button data-src="{% static 'img/map7.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">18:00</button>
+                    <button data-src="{% static 'img/map8.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">21:00</button>
+                </div>
             </div>
-            <div class="row mt-4">
+            <div>
                 <p class="m-0">Сб, 13 июля</p>
-                <button data-src="{% static 'img/map9.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">0:00</button>
-                <button data-src="{% static 'img/map10.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">3:00</button>
-                <button data-src="{% static 'img/map11.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">6:00</button>
-                <button data-src="{% static 'img/map12.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">9:00</button>
-                <button data-src="{% static 'img/map13.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">12:00</button>
-                <button data-src="{% static 'img/map14.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">15:00</button>
-                <button data-src="{% static 'img/map15.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">18:00</button>
-                <button data-src="{% static 'img/map16.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">21:00</button>
+                <div class="w-md-50">
+                    <button data-src="{% static 'img/map9.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">0:00</button>
+                    <button data-src="{% static 'img/map10.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">3:00</button>
+                    <button data-src="{% static 'img/map11.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">6:00</button>
+                    <button data-src="{% static 'img/map12.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">9:00</button>
+                    <button data-src="{% static 'img/map13.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">12:00</button>
+                    <button data-src="{% static 'img/map14.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">15:00</button>
+                    <button data-src="{% static 'img/map15.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">18:00</button>
+                    <button data-src="{% static 'img/map16.png' %}" class="col-12 container-7 text-center p-1 mt-1 time-block">21:00</button>
+                </div>
             </div>
         </div>
         
