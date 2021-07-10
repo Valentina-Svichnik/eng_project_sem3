@@ -5,6 +5,11 @@
 Ссылка на видео-отчет: https://drive.google.com/drive/folders/1a7DfI1WAyHJdsqRKwpte8YkbjmZ_f6Tf
 
 
-## Пароль и логин к админке
-Логин: std <br>
-Пароль: std
+## Пароли
+### администратор
+Логин: admin <br>
+Пароль: admin
+
+### оператор
+Логин: operator <br>
+Пароль: operator
