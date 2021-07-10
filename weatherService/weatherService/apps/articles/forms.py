@@ -10,8 +10,7 @@ class NewsForm(ModelForm):
             'date' : TextInput(attrs={
                 'class' : 'form-control',
                 'type' : 'date',
-                'id' : 'date',
-                'placeholder' : '01.01.2021'
+                'id' : 'date'
             }),
             'subject' : TextInput(attrs={
                 'class' : 'form-control',
@@ -33,7 +32,6 @@ class NewsForm(ModelForm):
             }),
             'description' : Textarea(attrs={
                 'class' : 'form-control',
-                'type' : 'text',
                 'id' : 'description',
                 'placeholder' : 'Текст новости'
             }),

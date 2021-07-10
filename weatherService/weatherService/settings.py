@@ -29,7 +29,7 @@ SECRET_KEY = 'z(s$4joty(n*+8f*cke^(&7g_n(q63c+rx4$_m3rp0t1tz(9)_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*'] 
 
 
 # Application definition
